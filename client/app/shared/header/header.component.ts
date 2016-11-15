@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent { }
+export class HeaderComponent {
+  prePageTitle: string = 'fcc.';
+  pageTitle: string = 'ChadSheets';
+  postPageTitle: string = '.com';
+ }
