@@ -1,8 +1,7 @@
-/**
- * Webpack configuration
- */
-
 'use strict';
+/* -----------------------------------|
+ *|  Webpack Configuration
+ */
 
 import path from 'path';
 import webpack from 'webpack';
@@ -10,22 +9,18 @@ import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import errorHandler from 'errorhandler';
 import config from './environment';
-import debug from 'debug';
+const debug = require('debug')('config:webpack');
 
 export default function(app) {
   var env = app.get('env');
 
-  debug.enable('app:*');
-  var log = debug('app:devServer');
-
   if (env === 'development' || env === 'test') {
+    debug('Webpack running, development mode');
     const stripAnsi = require('strip-ansi');
     const makeWebpackConfig = require('../../build/webpack.dev');
     const webpackConfig = makeWebpackConfig({ DEV: true });
     const compiler = webpack(webpackConfig);
     const browserSync = require('browser-sync').create();
-    log('Enabling Webpack Middleware');
-    log('Path: ' + webpackConfig.output.publicPath);
     const middleware = webpackMiddleware(compiler, {
       publicPath: webpackConfig.output.publicPath,
       stats: {
@@ -57,7 +52,7 @@ export default function(app) {
      * or send a fullscreen error message to the browser instead
      */
     compiler.plugin('done', function(stats) {
-      console.log('webpack done hook');
+      debug('Webpack done hook');
       if(stats.hasErrors() || stats.hasWarnings()) {
         return browserSync.sockets.emit('fullscreen:message', {
           title: 'Webpack Error:',

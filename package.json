@@ -20,6 +20,7 @@
     "@angular/router": "~3.1.1",
     "bootstrap": ">=3.0",
     "bootstrap-material-design": "https://github.com/cjsheets/bootstrap-material-design/tarball/dist-cjs",
+    "connect-mongo": "^1.3.2",
     "core-js": "^2.4.1",
     "express": "^4.14.0",
     "express-session": "^1.14.2",

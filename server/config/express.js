@@ -8,9 +8,13 @@ import config from './environment';
 import express from 'express';
 import favicon from 'serve-favicon';
 import lusca from 'lusca';
+import session from 'express-session';
+import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 import path from 'path';
-import session from 'express-session';
+const debug = require('debug')('config:express');
+
+const MongoStore = connectMongo(session);
 
 export default function(app) {
   var env = app.get('env');
@@ -33,7 +37,11 @@ export default function(app) {
   app.use(session({
     secret: config.secrets.session,
     saveUninitialized: true,
-    resave: false
+    resave: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      db: 'fcc_image-search-abstraction-layer'
+    })
   }));
 
   /**

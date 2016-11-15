@@ -3,10 +3,8 @@
 import mongoose from 'mongoose';
 
 var ImageSchema = new mongoose.Schema({
-  url: String,
-  snippet: String,
-  thumbnail: String,
-  context: String
+  term: String,
+  when: String
 });
 
 export default mongoose.model('Image', ImageSchema);
