@@ -3,8 +3,14 @@
 import mongoose from 'mongoose';
 
 var LatestSchema = new mongoose.Schema({
-  term: String,
-  when: String
+  term: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    required: true
+  }
 });
 
-export default mongoose.model('Latest', LatestSchema);
+export default mongoose.model('FCC_Image-Seach-Abstraction_Latest', LatestSchema);

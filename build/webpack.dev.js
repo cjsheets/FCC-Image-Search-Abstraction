@@ -2,9 +2,17 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
+const debug = require('debug')('webpack:dev');
+
 
 module.exports = function makeWebpackConfig(options) {
-    var config = {};
+  // Envorinment Type: NODE_ENV
+  const BUILD = !!options.BUILD;
+  const DEV = !!options.DEV;
+
+ // Reference: http://webpack.github.io/docs/configuration.html
+  var config = {};
+
   config.entry = {
     'polyfills': './client/polyfills.ts',
     'vendor': './client/vendor.ts',
@@ -50,6 +58,18 @@ module.exports = function makeWebpackConfig(options) {
       template: 'client/index.html'
     })
   ];
+
+  // if (DEV) {
+  //   var localEnv = require('../server/config/local.env.js');
+  //   config.plugins.push(
+  //     // Reference: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
+  //     new webpack.DefinePlugin({
+  //     'process.env': localEnv
+  // })
+  //   );
+  // }
+
+  //debug(JSON.stringify(process.env));
 
   config.devtool = 'cheap-module-eval-source-map';
 

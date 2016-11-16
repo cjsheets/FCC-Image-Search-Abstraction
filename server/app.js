@@ -8,6 +8,15 @@ import mongoose from 'mongoose';
 import config from './config/environment';
 const debug = require('debug')('app:app');
 
+// Connect to MongoDB
+mongoose.connect(config.mongo.uri, config.mongo.options);
+mongoose.connection.on('error', function(err) {
+  debug(`MongoDB connection error: ${err}`);
+  debug(`URI: ${config.mongo.uri}`);
+  debug(`Options: ${config.mongo.options}`);
+  process.exit(-1); // eslint-disable-line no-process-exit
+});
+
 // Setup server
 var app = express();
 require('./config/express').default(app);
