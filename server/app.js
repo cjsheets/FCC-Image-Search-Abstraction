@@ -21,6 +21,8 @@ mongoose.connection.on('error', function(err) {
 var app = express();
 require('./config/express').default(app);
 require('./config/webpack').default(app);
+
+// Default Routes
 require('./routes').default(app);
 
 // Define server

@@ -11,7 +11,7 @@ export default function(app) {
   var env = app.get('env');
 
   // Predefined / API routes
-  app.use('/api/image/', require('./api/image'));
+  app.use('/api/search/', require('./api/search'));
   app.use('/api/latest/', require('./api/latest'));
 
   // All undefined asset or api routes should return a 404

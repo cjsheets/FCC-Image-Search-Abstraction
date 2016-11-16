@@ -11,7 +11,7 @@ const debug = require('debug')('api:latest');
 var router = express.Router();
 
 router.get('*', controller.index);
-router.post('*', controller.create);
+//router.post('*', controller.create);
 debug('Initialized /api/latest...');
 
 module.exports = router;
