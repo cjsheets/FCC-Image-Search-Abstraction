@@ -8,7 +8,6 @@ import config from '../../config/environment';
 import Latest from '../latest/latest.model';
 import url from 'url';
 import querystring from 'querystring';
-import sanitize from 'mongo-sanitize';
 import validator from 'validator';
 import request from 'request';
 const debug = require('debug')('api:latest');
@@ -80,25 +79,28 @@ function filterResponse(data) {
   return result;
 }
 
-// Gets a list of Searchs
+// Perform google image search
 export function index(req, res) {
+  // Parse URL Query String
   let query = url.parse(req.url, true).query,
     term = query.term || query.t || query.q || '',
     count = query.count || query.c || '10',
     offset = query.offset || query.o || '1';
   debug('Caught a search request: t=' + term + 
     ', c=' + count + ', o=' + offset);
+
   //Verify the necissary options were provided
   if (! term || 
     ! validator.isInt(count.toString(), { min: 1, max: 10 }) ||
     ! validator.isInt(offset.toString(), { min: 1, max: 99 }) ) {
     return res.status(400).end(); // Bad Request
   };
+
   return queryGoogleAPI(term, count, offset, function(err, apiResposne, body){
-    if (!err) { //  && apiResposne.statusCode == 200
-//      let data = filterResponse(JSON.parse(body));
+    if (!err) {
       debug('Query succeeded in (s): ' + body.searchInformation.searchTime);
       let data = filterResponse(body.items);
+      // Record search in MongoDB
       return Latest.create({
         term: body.queries.request[0].searchTerms,
         date : new Date()
