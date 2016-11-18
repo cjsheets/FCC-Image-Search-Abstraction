@@ -18,9 +18,11 @@ var sample = require('./SampleResponse.json');
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
+  debug(entity);
     if(entity) {
       return res.status(statusCode).json(entity);
     }
+  debug(entity);
     return null;
   };
 }
@@ -57,6 +59,7 @@ function queryGoogleAPI(q, c, o, cb) {
   //   });
   // debug('Query Google: ' + url + '?' + queryString);
   // request( url + '?' + queryString, cb);
+  // Only 100 free queries / day, this uses sample data
   cb('', sample, sample);
 }
 
@@ -82,25 +85,31 @@ export function index(req, res) {
   let query = url.parse(req.url, true).query,
     term = query.term || query.t || query.q || '',
     count = query.count || query.c || '10',
-    offset = query.offset || query.o || '0';
+    offset = query.offset || query.o || '1';
   debug('Caught a search request: t=' + term + 
     ', c=' + count + ', o=' + offset);
   //Verify the necissary options were provided
   if (! term || 
     ! validator.isInt(count.toString(), { min: 1, max: 10 }) ||
-    ! validator.isInt(offset.toString(), { min: 0, max: 99 }) ) {
+    ! validator.isInt(offset.toString(), { min: 1, max: 99 }) ) {
     return res.status(400).end(); // Bad Request
   };
   return queryGoogleAPI(term, count, offset, function(err, apiResposne, body){
-      debug('running query callback');
     if (!err) { //  && apiResposne.statusCode == 200
 //      let data = filterResponse(JSON.parse(body));
-      debug('Time: ' + body.searchInformation.searchTime);
+      debug('Query succeeded in (s): ' + body.searchInformation.searchTime);
       let data = filterResponse(body.items);
-      return res.status(200).end(JSON.stringify(data)); // issue with request
-    }
+      return Latest.create({
+        term: body.queries.request[0].searchTerms,
+        date : new Date()
+        })
+        .then(res.end(JSON.stringify(data))
+          /*respondWithResult(res, 201) -mongoResponse-*/ )
+        .catch(handleError(res));
+    } else{
       debug('Query failed');
-    return res.status(apiResposne.statusCode).end(body); // issue with request
+      return res.status(apiResposne.statusCode).end(body); // issue with request
+    }
   });
 }
 
