@@ -59,18 +59,6 @@ module.exports = function makeWebpackConfig(options) {
     })
   ];
 
-  // if (DEV) {
-  //   var localEnv = require('../server/config/local.env.js');
-  //   config.plugins.push(
-  //     // Reference: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-  //     new webpack.DefinePlugin({
-  //     'process.env': localEnv
-  // })
-  //   );
-  // }
-
-  //debug(JSON.stringify(process.env));
-
   config.devtool = 'cheap-module-eval-source-map';
 
   config.output = {

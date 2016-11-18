@@ -1,0 +1,406 @@
+{
+  "kind": "customsearch#search",
+  "url": {
+    "type": "application/json",
+    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+  },
+  "queries": {
+    "request": [
+      {
+        "title": "Google Custom Search - red socks",
+        "totalResults": "910",
+        "searchTerms": "red socks",
+        "count": 10,
+        "startIndex": 1,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "012570757311217037394:jourpy4cojy",
+        "fileType": "jpg"
+      }
+    ],
+    "nextPage": [
+      {
+        "title": "Google Custom Search - red socks",
+        "totalResults": "910",
+        "searchTerms": "red socks",
+        "count": 10,
+        "startIndex": 11,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "012570757311217037394:jourpy4cojy",
+        "fileType": "jpg"
+      }
+    ]
+  },
+  "context": {
+    "title": "FCC-Image-Search"
+  },
+  "searchInformation": {
+    "searchTime": 0.43344,
+    "formattedSearchTime": "0.43",
+    "totalResults": "910",
+    "formattedTotalResults": "910"
+  },
+  "items": [
+    {
+      "kind": "customsearch#result",
+      "title": "File:Babe Ruth Red Sox 1918.jpg - Wikimedia Commons",
+      "htmlTitle": "File:Babe Ruth <b>Red Sox</b> 1918.jpg - Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Babe_Ruth_Red_Sox_1918.jpg",
+      "displayLink": "commons.wikimedia.org",
+      "snippet": "File:Babe Ruth Red Sox 1918.jpg. From Wikimedia Commons, the free media \nrepository. Jump to: navigation, search. File; File history; File usage on Commons\n ...",
+      "htmlSnippet": "File:Babe Ruth <b>Red Sox</b> 1918.jpg. From Wikimedia Commons, the free media <br>\nrepository. Jump to: navigation, search. File; File history; File usage on Commons<br>\n&nbsp;...",
+      "cacheId": "5htOASvtirAJ",
+      "formattedUrl": "https://commons.wikimedia.org/.../File:Babe_Ruth_Red_Sox_1918.jpg",
+      "htmlFormattedUrl": "https://commons.wikimedia.org/.../File:Babe_Ruth_<b>Red</b>_<b>Sox</b>_1918.jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "263",
+            "height": "191",
+            "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTTaq887VeKut-D_B7RMXDNcV_AAYdbn26f2pQqcO9QDSNHm0rLfVm8fQ"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Babe_Ruth_Red_Sox_1918.jpg/800px-Babe_Ruth_Red_Sox_1918.jpg"
+          }
+        ],
+        "hproduct": [
+          {
+            "fn": "Babe Ruth Red Sox 1918.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "File:Red Sox Rule book cover.jpg - Wikipedia, the free encyclopedia",
+      "htmlTitle": "File:<b>Red Sox</b> Rule book cover.jpg - Wikipedia, the free encyclopedia",
+      "link": "https://en.wikipedia.org/wiki/File:Red_Sox_Rule_book_cover.jpg",
+      "displayLink": "en.wikipedia.org",
+      "snippet": "Description, Cover of Michael Holley's 2008 book \"Red Sox Rule\". Author or ... \nMinimal use (WP:NFCC#3), File will only be used for the article \"Red Sox Rule\".",
+      "htmlSnippet": "Description, Cover of Michael Holley&#39;s 2008 book &quot;<b>Red Sox</b> Rule&quot;. Author or ... <br>\nMinimal use (WP:NFCC#3), File will only be used for the article &quot;<b>Red Sox</b> Rule&quot;.",
+      "cacheId": "q1QvzQD4MqUJ",
+      "formattedUrl": "https://en.wikipedia.org/wiki/File:Red_Sox_Rule_book_cover.jpg",
+      "htmlFormattedUrl": "https://en.wikipedia.org/wiki/File:<b>Red</b>_<b>Sox</b>_Rule_book_cover.jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "182",
+            "height": "276",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3gNTgkk9RKNWgUQvSYnmOzrYB6GcPWyn2vrIPrts8Ga3vGpeP_KV_ioU"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Red_Sox_Rule_book_cover.jpg/396px-Red_Sox_Rule_book_cover.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "File:Bill Buckner of the Boston Red Sox.jpg - Wikimedia Commons",
+      "htmlTitle": "File:Bill Buckner of the Boston <b>Red Sox</b>.jpg - Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Bill_Buckner_of_the_Boston_Red_Sox.jpg",
+      "displayLink": "commons.wikimedia.org",
+      "snippet": "File:Bill Buckner of the Boston Red Sox.jpg. From Wikimedia Commons, the free \nmedia repository. Jump to: navigation, search. File; File history; File usage on ...",
+      "htmlSnippet": "File:Bill Buckner of the Boston <b>Red Sox</b>.jpg. From Wikimedia Commons, the free <br>\nmedia repository. Jump to: navigation, search. File; File history; File usage on&nbsp;...",
+      "cacheId": "vNxRaPyTUSoJ",
+      "formattedUrl": "https://commons.wikimedia.org/.../File:Bill_Buckner_of_the_Boston_Red_ Sox.jpg",
+      "htmlFormattedUrl": "https://commons.wikimedia.org/.../File:Bill_Buckner_of_the_Boston_<b>Red</b>_ <b>Sox</b>.jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "201",
+            "height": "251",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyG_7RFesrMWoC6j4aF1QLNKRwyChBCOivZxR0sJ_rxQumUyMm0TTf6atV"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Bill_Buckner_of_the_Boston_Red_Sox.jpg/482px-Bill_Buckner_of_the_Boston_Red_Sox.jpg"
+          }
+        ],
+        "hproduct": [
+          {
+            "fn": "Bill Buckner of the Boston Red Sox.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "File:Boston Red Sox (1912 team photo).jpg - Wikipedia, the free ...",
+      "htmlTitle": "File:Boston <b>Red Sox</b> (1912 team photo).jpg - Wikipedia, the free ...",
+      "link": "https://en.wikipedia.org/wiki/File:Boston_Red_Sox_(1912_team_photo).jpg",
+      "displayLink": "en.wikipedia.org",
+      "snippet": "Description: Boston Red Sox (1912); Source:http://www.sportsecyclopedia.com/al\n/bosox/redsoximages.html; Author: Unknown; Permission: Public domain ...",
+      "htmlSnippet": "Description: Boston <b>Red Sox</b> (1912); Source:http://www.sportsecyclopedia.com/al<br>\n/bosox/redsoximages.html; Author: Unknown; Permission: Public domain&nbsp;...",
+      "cacheId": "RIT4CA67ShcJ",
+      "formattedUrl": "https://en.wikipedia.org/.../File:Boston_Red_Sox_(1912_team_photo).jpg",
+      "htmlFormattedUrl": "https://en.wikipedia.org/.../File:Boston_<b>Red</b>_<b>Sox</b>_(1912_team_photo).jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "290",
+            "height": "174",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpT4L_BpDp0D6PfKv5QIsDX0AnE8acI_E7lj7VAYKvw9T1tifF7DEUU7xU"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/en/0/04/Boston_Red_Sox_(1912_team_photo).jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "File:Boston Red Sox George W. Bush.jpg - Wikimedia Commons",
+      "htmlTitle": "File:Boston <b>Red Sox</b> George W. Bush.jpg - Wikimedia Commons",
+      "link": "https://commons.wikimedia.org/wiki/File:Boston_Red_Sox_George_W._Bush.jpg",
+      "displayLink": "commons.wikimedia.org",
+      "snippet": "File:Boston Red Sox George W. Bush.jpg. From Wikimedia Commons, the free \nmedia repository. Jump to: navigation, search. File; File history; File usage on ...",
+      "htmlSnippet": "File:Boston <b>Red Sox</b> George W. Bush.jpg. From Wikimedia Commons, the free <br>\nmedia repository. Jump to: navigation, search. File; File history; File usage on&nbsp;...",
+      "cacheId": "xa_RpwNwZqYJ",
+      "formattedUrl": "https://commons.wikimedia.org/.../File:Boston_Red_Sox_George_W._Bush. jpg",
+      "htmlFormattedUrl": "https://commons.wikimedia.org/.../File:Boston_<b>Red</b>_<b>Sox</b>_George_W._Bush. jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "275",
+            "height": "183",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsCbmHoPipcduORKKQjQndeOCdi6gsSsUhOeXpH8YD4elZ_YQC6bpi35w"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/2/25/Boston_Red_Sox_George_W._Bush.jpg"
+          }
+        ],
+        "hproduct": [
+          {
+            "fn": "Boston Red Sox George W. Bush.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "File:Red sock.jpg | Uncyclopedia | Fandom powered by Wikia",
+      "htmlTitle": "File:<b>Red sock</b>.jpg | Uncyclopedia | Fandom powered by Wikia",
+      "link": "http://uncyclopedia.wikia.com/wiki/File:Red_sock.jpg",
+      "displayLink": "uncyclopedia.wikia.com",
+      "snippet": "Summary Red sock Licensing: This article or image is a copyright violation. \nLuckily, nobody cares.",
+      "htmlSnippet": "Summary <b>Red sock</b> Licensing: This article or image is a copyright violation. <br>\nLuckily, nobody cares.",
+      "cacheId": "BaJXlzTA7UcJ",
+      "formattedUrl": "uncyclopedia.wikia.com/wiki/File:Red_sock.jpg",
+      "htmlFormattedUrl": "uncyclopedia.wikia.com/wiki/File:<b>Red</b>_<b>sock</b>.jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "191",
+            "height": "263",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF8WUpH7DUdUW5FWeNpupxRDymRSimzjOXy3o0Ky7A-EWG_rSpgQie3quN"
+          }
+        ],
+        "metatags": [
+          {
+            "twitter:card": "summary",
+            "twitter:site": "@Wikia",
+            "twitter:url": "http://uncyclopedia.wikia.com/wiki/File:Red_sock.jpg",
+            "twitter:title": "File:Red sock.jpg | Uncyclopedia | Fandom powered by Wikia",
+            "twitter:description": "Summary Red sock Licensing: This article or image is a copyright violation. Luckily, nobody cares.",
+            "fb:app_id": "112328095453510",
+            "og:type": "article",
+            "og:site_name": "Uncyclopedia",
+            "og:title": "Red sock.jpg",
+            "og:description": "Summary Red sock Licensing: This article or image is a copyright violation. Luckily, nobody cares.",
+            "og:url": "http://uncyclopedia.wikia.com/wiki/File:Red_sock.jpg",
+            "og:image": "http://vignette2.wikia.nocookie.net/uncyclopedia/images/5/5e/Red_sock.jpg/revision/latest?cb=20091027022704"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "http://vignette2.wikia.nocookie.net/uncyclopedia/images/5/5e/Red_sock.jpg/revision/latest?cb=20091027022704"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Archivo:Babe Ruth Red Sox 1918.jpg - Wikipedia, la enciclopedia libre",
+      "htmlTitle": "Archivo:Babe Ruth <b>Red Sox</b> 1918.jpg - Wikipedia, la enciclopedia libre",
+      "link": "https://es.m.wikipedia.org/wiki/Archivo:Babe_Ruth_Red_Sox_1918.jpg",
+      "displayLink": "es.m.wikipedia.org",
+      "snippet": "Archivo:Babe Ruth Red Sox 1918.jpg. Archivo; Historial ... English: American \nbaseball player Babe Ruth, publicity photo, 1919, Boston Red Sox. Fecha, 1919.",
+      "htmlSnippet": "Archivo:Babe Ruth <b>Red Sox</b> 1918.jpg. Archivo; Historial ... English: American <br>\nbaseball player Babe Ruth, publicity photo, 1919, Boston <b>Red Sox</b>. Fecha, 1919.",
+      "cacheId": "vVauO9GcQoMJ",
+      "formattedUrl": "https://es.m.wikipedia.org/.../Archivo:Babe_Ruth_Red_Sox_1918.jpg",
+      "htmlFormattedUrl": "https://es.m.wikipedia.org/.../Archivo:Babe_Ruth_<b>Red</b>_<b>Sox</b>_1918.jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "263",
+            "height": "191",
+            "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTTaq887VeKut-D_B7RMXDNcV_AAYdbn26f2pQqcO9QDSNHm0rLfVm8fQ"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin",
+            "viewport": "initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Babe_Ruth_Red_Sox_1918.jpg/800px-Babe_Ruth_Red_Sox_1918.jpg"
+          }
+        ],
+        "hproduct": [
+          {
+            "fn": "Babe Ruth Red Sox 1918.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "File:Chris Carter - Pawtucket Red Sox.jpg - 维基百科，自由的百科全书",
+      "htmlTitle": "File:Chris Carter - Pawtucket <b>Red Sox</b>.jpg - 维基百科，自由的百科全书",
+      "link": "https://zh.wikipedia.org/wiki/File:Chris_Carter_-_Pawtucket_Red_Sox.jpg",
+      "displayLink": "zh.wikipedia.org",
+      "snippet": "说明Chris Carter - Pawtucket Red Sox.jpg. Chris Carter batting for the Pawtucket \nRed Sox against the Syracuse Chiefs, 7 September 2009. 日期, 2009年9月7日.",
+      "htmlSnippet": "说明Chris Carter - Pawtucket <b>Red Sox</b>.jpg. Chris Carter batting for the Pawtucket <br>\n<b>Red Sox</b> against the Syracuse Chiefs, 7 September 2009. 日期, 2009年9月7日.",
+      "cacheId": "ANfCbU0044cJ",
+      "formattedUrl": "https://zh.wikipedia.org/.../File:Chris_Carter_-_Pawtucket_Red_Sox.jpg",
+      "htmlFormattedUrl": "https://zh.wikipedia.org/.../File:Chris_Carter_-_Pawtucket_<b>Red</b>_<b>Sox</b>.jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "188",
+            "height": "268",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsEnC17XTQCWNJeRnW-FkjPW-a9z__r3v2nvwg1fWPWXnrwGxA-vKdxyU"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Chris_Carter_-_Pawtucket_Red_Sox.jpg/421px-Chris_Carter_-_Pawtucket_Red_Sox.jpg"
+          }
+        ],
+        "hproduct": [
+          {
+            "fn": "Chris Carter - Pawtucket Red Sox.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Datei:2013 Red Sox zu Ehren der Boston Marathon Opfer.jpg ...",
+      "htmlTitle": "Datei:2013 <b>Red Sox</b> zu Ehren der Boston Marathon Opfer.jpg ...",
+      "link": "https://de.wikipedia.org/wiki/Datei:2013_Red_Sox_zu_Ehren_der_Boston_Marathon_Opfer.jpg",
+      "displayLink": "de.wikipedia.org",
+      "snippet": "2013-11-05 12:40:36 Hennez (88252 Bytes) {{Information |Beschreibung = \nEmblem der [[Boston Red Sox]] zu Ehren der Opfer des [[Anschlag auf den ...",
+      "htmlSnippet": "2013-11-05 12:40:36 Hennez (88252 Bytes) {{Information |Beschreibung = <br>\nEmblem der [[Boston <b>Red Sox</b>]] zu Ehren der Opfer des [[Anschlag auf den&nbsp;...",
+      "cacheId": "B7fGmWTh0LEJ",
+      "formattedUrl": "https://de.wikipedia.org/.../Datei:2013_Red_Sox_zu_Ehren_der_Boston_ Marathon_Opfer.jpg",
+      "htmlFormattedUrl": "https://de.wikipedia.org/.../Datei:2013_<b>Red</b>_<b>Sox</b>_zu_Ehren_der_Boston_ Marathon_Opfer.jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "224",
+            "height": "225",
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJPZpDHHBjsFwPfc5vKw7dsLIMtQK8mz52hEUtGBfYEtVclKqfedyOQnE"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/f/f6/2013_Red_Sox_zu_Ehren_der_Boston_Marathon_Opfer.jpg"
+          }
+        ],
+        "hproduct": [
+          {
+            "fn": "2013 Red Sox zu Ehren der Boston Marathon Opfer.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "File:Roberts aboard Carl Vinson.jpg - Wikipedia, the free encyclopedia",
+      "htmlTitle": "File:Roberts aboard Carl Vinson.jpg - Wikipedia, the free encyclopedia",
+      "link": "https://en.m.wikipedia.org/wiki/File:Roberts_aboard_Carl_Vinson.jpg",
+      "displayLink": "en.m.wikipedia.org",
+      "snippet": "English: Former center fielder for the Boston Red Sox and current first base \ncoach for the San Diego Padres, Dave Roberts, observes flight operations from \nthe ...",
+      "htmlSnippet": "English: Former center fielder for the Boston <b>Red Sox</b> and current first base <br>\ncoach for the San Diego Padres, Dave Roberts, observes flight operations from <br>\nthe&nbsp;...",
+      "cacheId": "giTEmz9RO64J",
+      "formattedUrl": "https://en.m.wikipedia.org/wiki/File:Roberts_aboard_Carl_Vinson.jpg",
+      "htmlFormattedUrl": "https://en.m.wikipedia.org/wiki/File:Roberts_aboard_Carl_Vinson.jpg",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "271",
+            "height": "186",
+            "src": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTBrpAJH0X1e_XahvEb0-QR3CRY8vQKSQVfbm_-ZgQdskhcLh3lEQQu6T0"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin-when-cross-origin",
+            "viewport": "initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Roberts_aboard_Carl_Vinson.jpg/800px-Roberts_aboard_Carl_Vinson.jpg"
+          }
+        ],
+        "hproduct": [
+          {
+            "fn": "Roberts aboard Carl Vinson.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}
