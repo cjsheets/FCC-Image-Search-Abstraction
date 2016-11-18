@@ -41,19 +41,13 @@ function handleError(res, statusCode) {
 
 // Gets a list of Latests
 export function index(req, res) {
-  let path = url.parse(req.url, true).pathname.split('/');
-  if(! validator.isInt(path[0], { min: 1, max: 99 })) { path[0] = 10 };
-  debug('Caught an index request');
-  return Latest.find().sort({_id: -1}).limit(sanitize(path[0])).exec()
+  let query = url.parse(req.url, true).query,
+    num = query.number || query.num || query.n || '10';
+  debug('Caught a latest request: n=' + num);
+  if (! validator.isInt(num.toString(), { min: 1, max: 50 }) ) {
+    return res.status(400).end(); // Bad Request
+  };
+  return Latest.find().sort({_id: -1}).limit(parseInt(num)).exec()
     .then(respondWithResult(res))
-    .catch(handleError(res));
-}
-
-// Creates a new Latest in the DB
-export function create(req, res) {
-  let path = url.parse(req.url, true).pathname.split('/');
-  debug('Caught a create request');
-  return Latest.create({ when : new Date()})
-    .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }

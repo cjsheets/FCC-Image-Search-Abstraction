@@ -10,7 +10,7 @@ import url from 'url';
 import querystring from 'querystring';
 import validator from 'validator';
 import request from 'request';
-const debug = require('debug')('api:latest');
+const debug = require('debug')('api:search');
 var sample = require('./SampleResponse.json');
 
 
