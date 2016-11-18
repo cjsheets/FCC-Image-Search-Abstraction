@@ -8,7 +8,6 @@
 
 import Latest from './latest.model';
 import url from 'url';
-import sanitize from 'mongo-sanitize';
 import validator from 'validator';
 const debug = require('debug')('api:latest');
 
@@ -47,7 +46,8 @@ export function index(req, res) {
   if (! validator.isInt(num.toString(), { min: 1, max: 50 }) ) {
     return res.status(400).end(); // Bad Request
   };
-  return Latest.find().sort({_id: -1}).limit(parseInt(num)).exec()
+  return Latest.find().sort({_id: -1}).limit(parseInt(num))
+    .select('term date -_id').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
