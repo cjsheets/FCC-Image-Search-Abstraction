@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.view.html',
-  styleUrls: ['./header.view.css']
+  selector: 'app-image-search',
+  templateUrl: './image-search.view.html',
+  styleUrls: ['./image-search.view.css']
 })
 
-export class HeaderComponent {
+export class ImageSearchComponent {
   prePageTitle: string = 'fcc.';
   pageTitle: string = 'ChadSheets';
   postPageTitle: string = '.com';

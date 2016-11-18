@@ -1,0 +1,115 @@
+footer{
+  background-color: #1f2d38;
+  color: #FFFFFF;
+}
+
+
+.content {
+margin-top: 10px;
+}
+
+#navspy {
+  padding-top: 20px;
+}
+
+
+.affix-top {
+  position: relative;
+}
+
+.affix {
+  top: 50px;
+}
+
+.affix, 
+.affix-bottom {
+    width: 213px;
+}
+
+.affix-bottom {
+  position: absolute;
+}
+
+@media (min-width: 1200px) {
+  .affix {
+    width: 263px;
+  }         
+}
+
+@media (min-width: 1200px) {
+  .affix-bottom {
+    width: 263px;
+  }
+}
+@media (min-width: 767px) {
+  #main {
+    width:calc(100% - 200px);
+    float: right;
+  }
+  #content, #footer {
+    width:100%;
+    float: right;
+    margin: 0px;
+  }
+}
+
+
+
+
+section:before { 
+  content: ''; display: block; position: relative; width: 0; height: 5em; margin-top: -5em }
+
+
+.navspy li a {
+  color: #333333;
+  font-size: 13px;
+  padding: 5px 15px;
+}
+
+.navspy li a:hover,
+.navspy li a:focus {
+  border-left: 1px solid #04559b;
+}
+
+.navspy .active a {
+  font-weight: bold;
+  border-left: 2px solid #04559b;
+  color: #04559b;
+}
+
+.navspy .navspy {
+  display: none;
+}
+
+.navspy .active .navspy {
+  display: block;
+}
+
+.navspy .active .navspy a {
+  border-left: 0px;
+  padding-left: 30px;
+  color: #333333;
+}
+
+.navspy .navspy a {
+  font-weight: normal;
+  font-size: .85em;
+}
+
+.navspy .navspy span {
+  margin: 0 5px 0 2px;
+}
+
+.navspy .navspy .active a,
+.navspy .navspy .active:hover a,
+.navspy .navspy .active:focus a {
+  padding-left: 30px;
+  border-left: 2px solid #04559b;
+  color: #04559b;
+}
+
+.navspy .navspy .active span,
+.navspy .navspy .active:hover span,
+.navspy .navspy .active:focus span {
+  display: none;
+}

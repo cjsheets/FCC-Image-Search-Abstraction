@@ -117,13 +117,4 @@
     display: block;
     top: 50px;
   }
-  #main {
-    width:calc(100% - 200px);
-    float: right;
-  }
-  #content, #footer {
-    width:100%;
-    float: right;
-    margin: 0px;
-  }
 }

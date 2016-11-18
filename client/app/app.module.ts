@@ -3,6 +3,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { ImageSearchComponent } from './components/image-search/image-search.component';
 @NgModule({
   imports: [
     BrowserModule
@@ -10,7 +11,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ImageSearchComponent
   ],
   bootstrap: [ AppComponent ]
 })

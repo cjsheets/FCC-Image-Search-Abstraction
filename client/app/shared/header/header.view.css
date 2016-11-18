@@ -1,5 +1,6 @@
-.navbar-fixed-top {
+#header-component {
     height: 49px;
+    background-color: #0c73b8;
     color: #FFF;
     border-top: 2px solid #14568a;
     border-bottom: 1px solid #1478b5;
