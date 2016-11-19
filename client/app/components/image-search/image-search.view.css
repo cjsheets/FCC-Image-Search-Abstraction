@@ -113,3 +113,8 @@ section:before {
 .navspy .navspy .active:focus span {
   display: none;
 }
+
+
+.panel-heading {
+  color: #333333;
+}
