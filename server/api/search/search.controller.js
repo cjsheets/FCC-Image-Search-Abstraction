@@ -107,7 +107,7 @@ export function index(req, res) {
         })
         .then(res.end(JSON.stringify(data))
           /*respondWithResult(res, 201) -mongoResponse-*/ )
-        .catch(handleError(res));
+        .catch(handleError(res, 'DB Storage Error'));
     } else{
       debug('Query failed');
       return res.status(apiResposne.statusCode).end(body); // issue with request
@@ -119,6 +119,6 @@ export function index(req, res) {
 export function create(req, res) {
   return Latest.create(req.body)
     .then(respondWithResult(res, 201))
-    .catch(handleError(res));
+    .catch(handleError(res, 'DB Create Error'));
 }
 
