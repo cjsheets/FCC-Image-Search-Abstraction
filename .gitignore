@@ -3,7 +3,6 @@
 #*/
 
 build/Release
-client/index.html
 jspm_packages
 logs
 node_modules
