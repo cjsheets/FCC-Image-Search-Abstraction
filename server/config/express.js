@@ -20,19 +20,19 @@ export default function(app) {
   var env = app.get('env');
 
   if(env === 'development' || env === 'test') {
-    app.use(express.static(path.join(config.root, '.tmp')));
-    app.set('appPath', path.join(config.root, 'client'));
+    app.use(express.static(config.root('.tmp')));
+    app.set('appPath', config.root('client'));
   }
 
   if(env === 'production') {
-    app.use(favicon(path.join(config.root, 'client/assets/', 'favicon.ico')));
-    app.set('appPath', path.join(config.root, 'dist'));
+    app.use(favicon(config.root('client/assets/favicon.ico')));
+    app.set('appPath', config.root('dist'));
   }
 
   app.use(express.static(app.get('appPath')));
 
 
-  app.set('views', `${config.root}/server/views`);
+  app.set('views', config.root('/server/views'));
 
 
   // // Persist sessions - Lusca depends on sessions

@@ -3,6 +3,7 @@
 
 import path from 'path';
 import _ from 'lodash';
+var _root = path.resolve(__dirname, '../../../');
 
 /*function requiredProcessEnv(name) {
   if(!process.env[name]) {
@@ -17,7 +18,10 @@ var all = {
   env: process.env.NODE_ENV,
 
   // Root path of server
-  root: path.normalize(`${__dirname}/../../..`),
+  root: function(args) {
+    args = Array.prototype.slice.call(arguments, 0);
+    return path.join.apply(path, [_root].concat(args));
+  },
 
   // Browser-sync port
   browserSyncPort: process.env.BROWSER_SYNC_PORT || 3000,
