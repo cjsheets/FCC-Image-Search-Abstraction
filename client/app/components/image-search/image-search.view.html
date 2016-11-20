@@ -7,363 +7,184 @@
             <div class="well page active content" id="about">
               <!-- Reset Indent -->
 
-<section id="web-design">
+<section id="image-search">
   <h2>Image Search API</h2>
   <p>This application abstracts a Google Custom Search Engine (CSE) into a simple
     API for image searches. 
   </p>
   <p>
-    <button type="button" class="btn btn-raised btn-secondary btn-sm pull-right">
+    <button type="button" href="#more-info" class="btn btn-raised btn-secondary btn-sm pull-right">
       More Information
     <div class="ripple-container"></div></button>
   </p>
   <br><br>
   <hr>
-  <h3>Try It Out</h3>
-  <div class="search-container">
-    <div class="form-group label-floating is-empty">
-      <div class="input-group">
-        <label for="i5" class="control-label">Search</label>
-        <input class="form-control" id="i5" type="text" [(ngModel)]="searchQuery"  (keyup.enter)="searchButtonClicked()">
-        <span class="help-block">Perform a <code>Google Image Search</code>, preview JSON response below</span>
-        <span class="input-group-btn">
-        <button type="button" class="btn btn-raised btn-primary" (click)="searchButtonClicked()">
-          <i class="zmdi zmdi-search"></i>
-          <div class="ripple-container"></div></button>
-        </span>
+  <section id="try-it">
+    <h3>Try It Out</h3>
+  <p>Enter a search term (optionally an offset) to see what the API returns.
+  </p>
+    <div class="search-container">
+      <div class="form-group label-floating is-empty">
+        <div class="input-group">
+          <label for="i5" class="control-label">Search</label>
+          <input class="form-control" id="i5" type="text" [(ngModel)]="searchQuery"  (keyup.enter)="searchButtonClicked()">
+          <span class="help-block">Perform a <code>Google Image Search</code>, preview JSON response below</span>
+          <span class="input-group-btn">
+          <button type="button" class="btn btn-raised btn-primary" (click)="searchButtonClicked()">
+            <i class="zmdi zmdi-search"></i>
+            <div class="ripple-container"></div></button>
+          </span>
+        </div>
       </div>
-    </div>
-    <div style="width: 40px;">
+      <div style="width: 40px;">
 
-    </div>
-    <div class="form-group is-empty" style="width: 110px;">
-      <div class="input-group spinner">
-        <input type="text" id="i6" class="form-control" placeholder="Offset"
-          [(ngModel)]="searchOffset" (change)="changeOffset()">
-        <div class="input-group-btn-vertical">
-          <button class="btn btn-default" type="button" (click)="incrementOffset()">
-            <i class="zmdi zmdi-caret-up"></i>
-          </button>
-          <button class="btn btn-default" type="button" (click)="decrementOffset()">
-            <i class="zmdi zmdi-caret-down"></i>
-          </button>
+      </div>
+      <div class="form-group is-empty" style="width: 110px;">
+        <div class="input-group spinner">
+          <input type="text" id="i6" class="form-control" placeholder="Offset"
+            [(ngModel)]="searchOffset" (change)="changeOffset()">
+          <div class="input-group-btn-vertical">
+            <button class="btn btn-default" type="button" (click)="incrementOffset()">
+              <i class="zmdi zmdi-caret-up"></i>
+            </button>
+            <button class="btn btn-default" type="button" (click)="decrementOffset()">
+              <i class="zmdi zmdi-caret-down"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <br><br>
-  <div class="panel panel-default">
-    <div class="panel-heading">API Call</div>
-    <div class="panel-body">
-      <span style="float: left">
-        {{apiCallString}}
-      </span>
-      <span style="float: left" *ngIf="searchQuery">
-        <b>{{searchQuery}}</b>
-      </span>
-      <span style="float: left" *ngIf="searchOffset > 0 && searchQuery">
-        &offset=<b>{{searchOffset}}</b>
-      </span>
-    </div>
-  </div>
-  <br><br>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Response
-      <a href="#" style="float: right; font-size: 0.8em" 
-        *ngIf="! responseLoading && responseJSON"
-        (click)="clearResponseJSON()">
-        clear
-      </a>
-    </div>
-    <div class="panel-body" *ngIf="responseLoading">
-      <div style="width: 100%; height: 50px; text-align: center; color: #0c73b8">
-        <i class="zmdi zmdi-refresh zmdi-hc-spin zmdi-hc-2x"></i>
+    <br><br>
+    <div class="panel panel-default">
+      <div class="panel-heading">API Call</div>
+      <div class="panel-body">
+        <span style="float: left">
+          {{apiCallString}}
+        </span>
+        <span style="float: left" *ngIf="searchQuery">
+          <b>{{searchQuery}}</b>
+        </span>
+        <span style="float: left" *ngIf="searchOffset > 0 && searchQuery">
+          &offset=<b>{{searchOffset}}</b>
+        </span>
       </div>
     </div>
-    <div class="panel-body" *ngIf="! responseLoading">
-        <p *ngFor="let result of responseJSON" style="word-wrap: break-word">
-          {{jsonToString(result)}}
-        </p>
+    <br><br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Response
+        <a href="#" style="float: right; font-size: 0.8em" 
+          *ngIf="! responseLoading && responseJSON"
+          (click)="clearResponseJSON()">
+          clear
+        </a>
+      </div>
+      <div class="panel-body" *ngIf="responseLoading">
+        <div style="width: 100%; height: 50px; text-align: center; color: #0c73b8">
+          <i class="zmdi zmdi-refresh zmdi-hc-spin zmdi-hc-2x"></i>
+        </div>
+      </div>
+      <div class="panel-body" *ngIf="! responseLoading">
+          <p *ngFor="let result of responseJSON" style="word-wrap: break-word">
+            {{jsonToString(result)}}
+          </p>
+      </div>
     </div>
-  </div>
-</section><!--end of #web-design-->
-  
-  <br><br>
-  <hr>
+  </section><!--end of #tryit-->
+<br>
+<hr>
+  <section id="latest">
+    <h3>Latest Search Queries</h3>
+  <p>A second API tracks the most recently searched-for queries.
+  </p>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Latest Queries
+        <a href="#" style="float: right; font-size: 0.8em" 
+          *ngIf="! responseLoading && responseJSON"
+          (click)="clearResponseJSON()">
+          clear
+        </a>
+      </div>
+      <div class="panel-body" *ngIf="latestLoading">
+        <div style="width: 100%; height: 50px; text-align: center; color: #0c73b8">
+          <i class="zmdi zmdi-refresh zmdi-hc-spin zmdi-hc-2x"></i>
+        </div>
+      </div>
+      <div class="panel-body" *ngIf="! latestLoading">
+          <p *ngFor="let result of latestJSON" style="word-wrap: break-word">
+            Date: {{result.date}} - Search: {{result.term}}
+          </p>
+      </div>
+    </div>
+  </section>
+</section><!--end of #web-design-->  
+<br><br>
+<hr>
 
-          <section id="web-development">
-            <h2>Web Development</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. Etiam ultricies nisi vel augue.
-              Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-              tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.Nam
-              quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
+<section id="more-information"><a name="more-info"></a>
+  <h2>More Information</h2>
+  <p>The API endpoints are accessable via the GET request detailed below:
+  </p>
+  <br>
+  <h4>GET /api/search?q=&lt;search term&gt;[&offset=&lt;number&gt;]</h4>
+  <br>
+  <p>The <b>query string</b> is mandatory, the offset and count are optional. The default
+  count is 10 with an offset of 0.
+  </p>
+  <section id="limitations">
+    <h3>Limitations</h3>
+    <p>This application makes use of free tiers of Heroku and Google CSE. Accordingly,
+      the application is limited to:
+    </p>
+    <ul>
+      <li>100 searches / day</li>
+      <li>18 hours / day of run time</li>
+    </ul>
+    <p>After the search limit is reached the api will return an error message from Google.
+      The latest API remains available until 18 hours is reached at which point the endpoint 
+      is completely down.
+    </p>
+    <p>Acceptable inputs to the API include:
+    </p>
+    <ul>
+      <li>query: Any string of letters and numbers</li>
+      <li>offset: Any integer between 1-99</li>
+      <li>count: Any integer between 1-10</li>
+    </ul>
+    <p>The following API terms are also interchangable:
+    </p>
+    <ul>
+      <li>term || t || q =...</li>
+      <li>offset || o =...</li>
+      <li>count || c =...</li>
+    </ul>
+  </section><!--end of #limitations-->
+  <section id="user-story">
+    <h3>User Story</h3>
+    <p>The following user stories were the basis for this application:
+    </p>
+    <ol>
+      <li>I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+      <li>I can paginate through the responses by adding a ?offset=2 parameter to the URL.</li>
+      <li>I can get a list of the most recently submitted search strings.</li> 
+    </ol>
+  </section><!--end of #limitations-->
+</section><!--end of #more-information-->
+<br>
+<hr>
 
-            <section id="ruby">
-              <h3>Ruby</h3>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <button type="button" class="btn btn-primary">Learn More</button>
-            </section><!--end of #ruby-->
-
-            <section id="python">
-              <h3>Python</h3>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <button type="button" class="btn btn-primary">Learn More</button>
-            </section><!--end of #python-->
-
-            <section id="php">
-              <h3>PHP</h3>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <button type="button" class="btn btn-primary">Learn More</button>
-            </section><!--end of #php-->
-          </section><!--end of #web-devlopment-->
-
-          <section id="marketing">
-            <h2>Marketing</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-              tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-              tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
-            </p>
-            <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in,
-              viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-              Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-              Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
-              adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <button type="button" class="btn btn-primary">Learn More</button>
-          </section><!--end of #marketing-->
-
-          <section id="graphic-design">
-            <h2>Graphic Design</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. Etiam ultricies nisi vel augue.
-              Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-              tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <button type="button" class="btn btn-primary">Learn More</button>
-          </section><!--end of #graphic-design-->
-
-          <section id="logistics">
-            <h2>Logistics</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
-              Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-              tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <button type="button" class="btn btn-primary">Learn More</button>
-          </section><!--end of #logistics-->
-
-          <section id="social">
-            <h2>Social</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-              tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-              tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
-            </p>
-            <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-              tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris
-              sit amet nibh. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <button type="button" class="btn btn-primary">Learn More</button>
-          </section><!--end of #social-->
-
-          <section id="management">
-            <h2>Management</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in,
-              viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-              Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-              Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
-              adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-              tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-              tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
-            </p>
-            <button type="button" class="btn btn-primary">Learn More</button>
-          </section><!--end of #management-->
-
-          <section id="chemistry">
-            <h2>Chemistry</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
-              Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-              tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <button type="button" class="btn btn-primary">Learn More</button>
-          </section><!--end of #chemistry-->
-
-          <section id="mobile-development">
-            <h2>Mobile Development</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. Etiam ultricies nisi vel augue.
-              Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-              tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-              tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-              tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
-            </p>
-
-            <section id="android">
-              <h3>Android Development</h3>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-              luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <button type="button" class="btn btn-primary">Learn More</button>
-            </section><!--end of #android-->
-
-            <section id="iOS">
-              <h3>iOS Development</h3>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Nam quam nunc, blandit vel,
-                luctus pulvinar, hendrerit id, lorem.
-              </p>
-              <button type="button" class="btn btn-primary">Learn More</button>
-            </section><!--end of #iOS-->
-          </section><!--end of #mobile-development-->
-          
-          <section id="mathematics">
-            <h2>Mathematics</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. Etiam ultricies nisi vel augue.
-              Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-              tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-              massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-              quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-              Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.
-              Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-            </p>
-            <button type="button" class="btn btn-primary">Learn More</button>
-          </section><!--end of #mathematics-->
+<section id="to-do">
+  <h2>ToDo</h2>
+<ul>
+  <li>Add smooth scrolling</li>
+  <li>Fix Interface / Links</li>
+  <li>Add form validation</li>
+  <li>Improve server side error message handling</li>
+  <li>Add notifications to interface</li>
+  <li>Rewrite footer</li>
+</ul>
+</section><!--end of #more-information-->
 
     
               <!-- /Reset Indent -->
@@ -374,30 +195,19 @@
     </div>
     <div class="col-md-3 scrollspy">
         <ul id="navspy" class="nav hidden-xs hidden-sm navspy" data-spy="affix">
-          <li><a href="#web-design">Web Design</a></li>
-          <li>
-
-          <a href="#web-development">Web Development</a>
-
+          <li><a href="#image-search">Search API</a>
             <ul class="nav navspy">
-              <li><a href="#ruby">Ruby</a></li>
-              <li><a href="#python">Python</a></li>
-              <li><a href="#php">PHP</a></li>
+              <li><a href="#try-it">Try It Out</a></li>
+              <li><a href="#latest">Latest Queries</a></li>
             </ul>
           </li>
-          <li><a href="#marketing">Marketing</a></li>
-          <li><a href="#graphic-design">Graphic Design</a></li>
-          <li><a href="#logistics">Logistics</a></li>
-          <li><a href="#social">Social</a></li>
-          <li><a href="#management">Management</a></li>
-          <li><a href="#chemistry">Chemistry</a></li>
-          <li><a href="#mobile-development">Mobile Development</a>
+          <li><a href="#more-information">More Information</a>
             <ul class="nav navspy">
-              <li><a href="#android">Android</a></li>
-              <li><a href="#iOS">iOS</a></li>
+              <li><a href="#limitations">Limitations</a></li>
+              <li><a href="#user-story">User Story</a></li>
             </ul>
           </li>
-          <li><a href="#mathematics">Mathematics</a></li>
+          <li><a href="#to-do">ToDo</a></li>
         <li style="padding-top: 10px;"><a href="#top">Back to Top</a></li>
         </ul>
     </div>

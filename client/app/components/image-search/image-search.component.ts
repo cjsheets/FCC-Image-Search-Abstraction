@@ -11,12 +11,15 @@ import { ImageSearchService } from './image-search.service';
 export class ImageSearchComponent implements OnInit {
 
   private imageSearchURL = 'api/search?t=';
+  private latestURL = 'api/latest';
   searchQuery: string = '';
   searchOffset: number;
   queryString: string = '';
   apiCallString: string = 'http://' + document.domain + '/' + this.imageSearchURL;
   responseJSON: [{}];
+  latestJSON: [{}];
   responseLoading: boolean = false;
+  latestLoading: boolean = false;
 
   constructor(private imageSearchService: ImageSearchService) { }
 
@@ -34,11 +37,21 @@ export class ImageSearchComponent implements OnInit {
           console.log(response);
           this.responseJSON = response;
           this.responseLoading = false;
+          this.getLatestSearches();
         })
         .catch(this.handleError);
     } else {
 
     }
+  }
+
+  getLatestSearches(): void {
+    this.imageSearchService.getImageResults(this.latestURL)
+      .then(response => {
+        this.latestJSON = response;
+        this.latestLoading = false;
+        console.log(response);
+      })
   }
 
   jsonToString(json: {}): string {
@@ -65,6 +78,8 @@ export class ImageSearchComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getImageSearchResults();
+    this.latestLoading = true;
+    this.getLatestSearches();
   }
 
   private handleError(error: any): Promise<any> {
