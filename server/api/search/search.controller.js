@@ -11,7 +11,7 @@ import querystring from 'querystring';
 import validator from 'validator';
 import request from 'request';
 const debug = require('debug')('api:search');
-var sample = require('./SampleResponse.json');
+var sampleData = require('./SampleResponse.json');
 
 
 function respondWithResult(res, statusCode) {
@@ -58,7 +58,8 @@ function queryGoogleAPI(q, c, o, cb) {
   //   });
   // debug('Query Google: ' + url + '?' + queryString);
   // request( url + '?' + queryString, cb);
-  // Only 100 free queries / day, this uses sample data
+  //Only 100 free queries / day, this uses sample data
+  let sample = JSON.stringify(sampleData);
   cb('', sample, sample);
 }
 
@@ -98,11 +99,13 @@ export function index(req, res) {
 
   return queryGoogleAPI(term, count, offset, function(err, apiResposne, body){
     if (!err) {
-      debug('Query succeeded in (s): ' + body.searchInformation.searchTime);
-      let data = filterResponse(body.items);
+      debug('Query succeeded'); 
+      //console.log(body);
+      let results = JSON.parse(body),
+        data = filterResponse(results.items);
       // Record search in MongoDB
       return Latest.create({
-        term: body.queries.request[0].searchTerms,
+        term: results.queries.request[0].searchTerms,
         date : new Date()
         })
         .then(res.end(JSON.stringify(data))
