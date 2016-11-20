@@ -6,6 +6,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import config from './config/environment';
+import errorHandler from 'errorhandler';
 const debug = require('debug')('app:app');
 
 // Connect to MongoDB
@@ -14,6 +15,7 @@ mongoose.connection.on('error', function(err) {
   debug(`MongoDB connection error: ${err}`);
   debug(`URI: ${config.mongo.uri}`);
   debug(`Options: ${config.mongo.options}`);
+  console.log('DB Conn failed, exiting.')
   process.exit(-1); // eslint-disable-line no-process-exit
 });
 

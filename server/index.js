@@ -10,7 +10,8 @@ if (env === 'development' || env === 'test') {
     // Register the Babel require hook
   require('babel-register');
 } else {
-  process.env.DEBUG = '';
+  process.env.DEBUG = 'app:*,api:*,config:*,webpack:*';
+  require('babel-register');
 }
 
 // Export the application

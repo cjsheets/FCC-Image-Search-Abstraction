@@ -28,6 +28,7 @@ pids
 #*| Angular+Express Kickstart
 #*/
 
+/dist/*
 /server/config/local.env.js
 
 

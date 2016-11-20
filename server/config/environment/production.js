@@ -1,9 +1,12 @@
 'use strict';
 /*eslint no-process-env:0*/
 
+import path from 'path';
+import _ from 'lodash';
+
 // Production specific configuration
 // =================================
-module.exports = {
+var all = {
   // Server IP
   ip: process.env.OPENSHIFT_NODEJS_IP
     || process.env.ip
@@ -24,3 +27,7 @@ module.exports = {
       || 'mongodb://localhost/test'
   }
 };
+
+module.exports = _.merge(
+  all,
+  require('../local.env.js') || {});

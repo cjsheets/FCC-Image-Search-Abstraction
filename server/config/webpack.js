@@ -70,7 +70,7 @@ export default function(app) {
 
 
     app.use(errorHandler()); // Error handler - has to be last
-  } else {
-    app.use(express.static(__dirname + '/dist'));
+  // } else {
+  //   app.use(express.static(__dirname + '/dist'));
   }
 }
