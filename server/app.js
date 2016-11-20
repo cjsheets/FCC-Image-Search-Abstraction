@@ -6,7 +6,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import config from './config/environment';
-import errorHandler from 'errorhandler';
 const debug = require('debug')('app:app');
 
 // Connect to MongoDB

@@ -5,9 +5,6 @@
 
 import path from 'path';
 import webpack from 'webpack';
-import webpackMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import errorHandler from 'errorhandler';
 import config from './environment';
 const debug = require('debug')('config:webpack');
 
@@ -15,6 +12,10 @@ export default function(app) {
   var env = app.get('env');
 
   if (env === 'development' || env === 'test') {
+    const webpackMiddleware = require('webpack-dev-middleware');
+    const webpackHotMiddleware = require('webpack-hot-middleware');
+    const errorHandler = require('errorhandler');
+
     debug('Webpack running, development mode');
     const stripAnsi = require('strip-ansi');
     const makeWebpackConfig = require('../../build/webpack.dev');
