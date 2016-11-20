@@ -45,22 +45,22 @@ function handleError(res, statusCode) {
 }
 
 function queryGoogleAPI(q, c, o, cb) {
-  // let cx = process.env.CX || config.api.cx,
-  //   key = process.env.KEY || config.api.key,
-  //   url = process.env.API_URL || config.api.url,
-  //   queryString = querystring.stringify({
-  //     q: q,
-  //     cx: cx,
-  //     count: c,
-  //     start: o,
-  //     fileType: 'jpg',
-  //     key: key
-  //   });
-  // debug('Query Google: ' + url + '?' + queryString);
-  // request( url + '?' + queryString, cb);
+  let cx = process.env.CX || config.api.cx,
+    key = process.env.KEY || config.api.key,
+    url = process.env.API_URL || config.api.url,
+    queryString = querystring.stringify({
+      q: q,
+      cx: cx,
+      count: c,
+      start: o,
+      fileType: 'jpg',
+      key: key
+    });
+  debug('Query Google: ' + url + '?' + queryString);
+  request( url + '?' + queryString, cb);
   //Only 100 free queries / day, this uses sample data
-  let sample = JSON.stringify(sampleData);
-  cb('', sample, sample);
+  // let sample = JSON.stringify(sampleData);
+  // cb('', sample, sample);
 }
 
 function filterResponse(data) {

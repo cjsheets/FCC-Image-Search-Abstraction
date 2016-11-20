@@ -29,7 +29,7 @@ export class ImageSearchComponent implements OnInit {
     if(this.searchQuery) {
       this.queryString = (this.searchOffset > 0) ? 
         this.searchQuery + '&o=' + this.searchOffset : this.searchQuery;
-      this.imageSearchService.getImageResults(this.imageSearchURL + this.searchQuery)
+      this.imageSearchService.getImageResults(this.imageSearchURL + this.queryString)
         .then(response => {
           console.log(response);
           this.responseJSON = response;
