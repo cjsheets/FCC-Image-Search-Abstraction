@@ -33,13 +33,20 @@
         </span>
       </div>
     </div>
-    <div class="form-group label-floating is-empty" style="width: 150px;">
+    <div style="width: 40px;">
+
+    </div>
+    <div class="form-group is-empty" style="width: 110px;">
       <div class="input-group spinner">
-        <label for="i6" class="control-label">Offset</label>
-        <input type="text" id="i6" class="form-control">
+        <input type="text" id="i6" class="form-control" placeholder="Offset"
+          [(ngModel)]="searchOffset" (change)="changeOffset()">
         <div class="input-group-btn-vertical">
-          <button class="btn btn-default" type="button"> <i class="zmdi zmdi-caret-up"></i></button>
-          <button class="btn btn-default" type="button"> <i class="zmdi zmdi-caret-down"></i></button>
+          <button class="btn btn-default" type="button" (click)="incrementOffset()">
+            <i class="zmdi zmdi-caret-up"></i>
+          </button>
+          <button class="btn btn-default" type="button" (click)="decrementOffset()">
+            <i class="zmdi zmdi-caret-down"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -49,10 +56,13 @@
     <div class="panel-heading">API Call</div>
     <div class="panel-body">
       <span style="float: left">
-        127.0.0.1:3000/api/search
+        {{apiCallString}}
       </span>
       <span style="float: left" *ngIf="searchQuery">
-        ?q=<b>{{searchQuery}}</b>
+        <b>{{searchQuery}}</b>
+      </span>
+      <span style="float: left" *ngIf="searchOffset > 0 && searchQuery">
+        &offset=<b>{{searchOffset}}</b>
       </span>
     </div>
   </div>

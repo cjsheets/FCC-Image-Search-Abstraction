@@ -9,7 +9,12 @@ import { ImageSearchService } from './image-search.service';
 })
 
 export class ImageSearchComponent implements OnInit {
+
+  private imageSearchURL = 'api/search?t=';
   searchQuery: string = '';
+  searchOffset: number;
+  queryString: string = '';
+  apiCallString: string = 'http://' + document.domain + '/' + this.imageSearchURL;
   responseJSON: [{}];
   responseLoading: boolean = false;
 
@@ -21,13 +26,19 @@ export class ImageSearchComponent implements OnInit {
   }
 
   getImageSearchResults(): void {
-    this.imageSearchService.getImageResults(this.searchQuery)
-      .then(response => {
-        console.log(response);
-        this.responseJSON = response;
-        this.responseLoading = false;
-      })
-      .catch(this.handleError);
+    if(this.searchQuery) {
+      this.queryString = (this.searchOffset > 0) ? 
+        this.searchQuery + '&o=' + this.searchOffset : this.searchQuery;
+      this.imageSearchService.getImageResults(this.imageSearchURL + this.searchQuery)
+        .then(response => {
+          console.log(response);
+          this.responseJSON = response;
+          this.responseLoading = false;
+        })
+        .catch(this.handleError);
+    } else {
+
+    }
   }
 
   jsonToString(json: {}): string {
@@ -36,6 +47,20 @@ export class ImageSearchComponent implements OnInit {
 
   clearResponseJSON(): void {
     this.responseJSON = [{}];
+  }
+
+  changeOffset(): void {
+    this.searchOffset = (this.searchOffset > 0) ? this.searchOffset : null;
+  }
+
+  incrementOffset(): void {
+    this.searchOffset = (this.searchOffset) ? this.searchOffset + 1 : 1;
+    this.changeOffset();
+  }
+
+  decrementOffset(): void {
+    this.searchOffset = this.searchOffset - 1;
+    this.changeOffset();
   }
 
   ngOnInit(): void {

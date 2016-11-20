@@ -6,14 +6,13 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ImageSearchService {
 
-  private imageSearchURL = 'api/search?t=';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) { }
 
   getImageResults(searchQuery: string): Promise<[{}]> {
-      console.log(this.imageSearchURL + searchQuery);
-      return this.http.get(this.imageSearchURL + searchQuery)
+      console.log(searchQuery);
+      return this.http.get(searchQuery)
         .toPromise()
         .then(response => response.json())
         .catch(this.handleError);

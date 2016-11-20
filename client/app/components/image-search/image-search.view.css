@@ -124,8 +124,7 @@ section:before {
 /* http://codepen.io/Thomas-Lebeau/pen/csHqx */
 
 .spinner {
-  width: 145px;
-  padding-left: 45px;
+  width: 100px;
 }
 .input-group-btn-vertical {
   position: relative;
@@ -154,6 +153,7 @@ section:before {
   display: table;
   border-collapse:collapse;
   width:100%;
+  margin-top: 20px;
 }
 .search-container > div {
   display: table-cell;
