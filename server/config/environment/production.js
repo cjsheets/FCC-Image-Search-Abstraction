@@ -1,9 +1,6 @@
 'use strict';
 /*eslint no-process-env:0*/
 
-import path from 'path';
-import _ from 'lodash';
-
 // Production specific configuration
 // =================================
 var all = {
@@ -28,6 +25,4 @@ var all = {
   }
 };
 
-module.exports = _.merge(
-  all,
-  require('../local.env.js') || {});
+module.exports = all;
