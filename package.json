@@ -37,7 +37,6 @@
     "validator": "^6.1.0",
     "webpack-merge": "^0.14.1",
     "zone.js": "^0.6.25",
-    // Build Dependencies
     "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.45",
     "angular2-template-loader": "^0.4.0",
