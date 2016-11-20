@@ -20,16 +20,28 @@
   <br><br>
   <hr>
   <h3>Try It Out</h3>
-  <div class="form-group label-floating is-empty">
-    <div class="input-group">
-      <label for="i5" class="control-label">Search</label>
-      <input class="form-control" id="i5" type="text" [(ngModel)]="query"  #searchBox (keyup.enter)="searchButtonClicked(searchBox.value)">
-      <span class="help-block">Perform a <code>Google Image Search</code>, preview JSON response below</span>
-      <span class="input-group-btn">
-      <button type="button" class="btn btn-raised btn-primary" (click)="searchButtonClicked(searchBox.value)">
-        <i class="zmdi zmdi-search"></i>
-        <div class="ripple-container"></div></button>
-      </span>
+  <div class="search-container">
+    <div class="form-group label-floating is-empty">
+      <div class="input-group">
+        <label for="i5" class="control-label">Search</label>
+        <input class="form-control" id="i5" type="text" [(ngModel)]="searchQuery"  (keyup.enter)="searchButtonClicked()">
+        <span class="help-block">Perform a <code>Google Image Search</code>, preview JSON response below</span>
+        <span class="input-group-btn">
+        <button type="button" class="btn btn-raised btn-primary" (click)="searchButtonClicked()">
+          <i class="zmdi zmdi-search"></i>
+          <div class="ripple-container"></div></button>
+        </span>
+      </div>
+    </div>
+    <div class="form-group label-floating is-empty" style="width: 150px;">
+      <div class="input-group spinner">
+        <label for="i6" class="control-label">Offset</label>
+        <input type="text" id="i6" class="form-control">
+        <div class="input-group-btn-vertical">
+          <button class="btn btn-default" type="button"> <i class="zmdi zmdi-caret-up"></i></button>
+          <button class="btn btn-default" type="button"> <i class="zmdi zmdi-caret-down"></i></button>
+        </div>
+      </div>
     </div>
   </div>
   <br><br>
@@ -39,14 +51,21 @@
       <span style="float: left">
         127.0.0.1:3000/api/search
       </span>
-      <span style="float: left" *ngIf="query">
-        ?q=<b>{{query}}</b>
+      <span style="float: left" *ngIf="searchQuery">
+        ?q=<b>{{searchQuery}}</b>
       </span>
     </div>
   </div>
   <br><br>
   <div class="panel panel-default">
-    <div class="panel-heading">Response</div>
+    <div class="panel-heading">
+      Response
+      <a href="#" style="float: right; font-size: 0.8em" 
+        *ngIf="! responseLoading && responseJSON"
+        (click)="clearResponseJSON()">
+        clear
+      </a>
+    </div>
     <div class="panel-body" *ngIf="responseLoading">
       <div style="width: 100%; height: 50px; text-align: center; color: #0c73b8">
         <i class="zmdi zmdi-refresh zmdi-hc-spin zmdi-hc-2x"></i>

@@ -118,3 +118,43 @@ section:before {
 .panel-heading {
   color: #333333;
 }
+
+
+/* Input Spinner */
+/* http://codepen.io/Thomas-Lebeau/pen/csHqx */
+
+.spinner {
+  width: 145px;
+  padding-left: 45px;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+  top: -4px;
+  left: 4px;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+.search-container {
+  display: table;
+  border-collapse:collapse;
+  width:100%;
+}
+.search-container > div {
+  display: table-cell;
+}

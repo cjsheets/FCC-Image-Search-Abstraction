@@ -9,18 +9,19 @@ import { ImageSearchService } from './image-search.service';
 })
 
 export class ImageSearchComponent implements OnInit {
-  searchQuery: string = 'cats';
+  searchQuery: string = '';
   responseJSON: [{}];
-  responseLoading: boolean = true;
+  responseLoading: boolean = false;
 
   constructor(private imageSearchService: ImageSearchService) { }
 
   searchButtonClicked(searchTerm: string): void {
-    this.responseLoading = true;;
+    this.responseLoading = true;
+    this.getImageSearchResults();
   }
 
   getImageSearchResults(): void {
-    this.imageSearchService.getImageResults()
+    this.imageSearchService.getImageResults(this.searchQuery)
       .then(response => {
         console.log(response);
         this.responseJSON = response;
@@ -33,8 +34,12 @@ export class ImageSearchComponent implements OnInit {
     return JSON.stringify(json);
   }
 
+  clearResponseJSON(): void {
+    this.responseJSON = [{}];
+  }
+
   ngOnInit(): void {
-    this.getImageSearchResults();
+    // this.getImageSearchResults();
   }
 
   private handleError(error: any): Promise<any> {
