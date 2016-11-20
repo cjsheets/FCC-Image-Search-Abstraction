@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server",
     "test": "karma start",
-    "build": "rimraf dist && webpack --config build/webpack.prod.js --progress --profile --bail"
+    "build": "rimraf dist && webpack --config build/webpack.prod.js --progress --profile --bail",
+    "postinstall": "rimraf dist && webpack --config build/webpack.prod.js --progress --profile --bail"
   },
   "license": "MIT",
   "dependencies": {

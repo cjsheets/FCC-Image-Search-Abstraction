@@ -10,7 +10,8 @@ import errorHandler from 'errorhandler';
 const debug = require('debug')('app:app');
 
 // Connect to MongoDB
-mongoose.connect(config.mongo.uri, config.mongo.options);
+let mongoURI = process.env.MONGO_URI || config.mongo.uri;
+mongoose.connect(mongoURI, config.mongo.options);
 mongoose.connection.on('error', function(err) {
   debug(`MongoDB connection error: ${err}`);
   debug(`URI: ${config.mongo.uri}`);
