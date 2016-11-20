@@ -6,21 +6,25 @@ var helpers = require('./helpers');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
-module.exports = webpackMerge(commonConfig, {
-  devtool: 'source-map',
+module.exports = function makeWebpackConfig(options) {
 
-  output: {
+ // Reference: http://webpack.github.io/docs/configuration.html
+  var config = {};
+
+  config.devtool = 'source-map';
+
+  config.output = {
     path: helpers.root('dist'),
     publicPath: '/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
-  },
+  };
 
-  htmlLoader: {
+  config.htmlLoader = {
     minimize: false // workaround for ng2
-  },
+  };
 
-  plugins: [
+  config.plugins = [
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
@@ -34,5 +38,7 @@ module.exports = webpackMerge(commonConfig, {
         'ENV': JSON.stringify(ENV)
       }
     })
-  ]
-});
+  ];
+
+  return webpackMerge(commonConfig, config);
+};
