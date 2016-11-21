@@ -5,6 +5,7 @@
   "main": "server/",
   "scripts": {
     "start": "node server",
+    "start:prod": "NODE_ENV=production node server",
     "test": "karma start",
     "build": "rimraf dist && webpack --config build/webpack.prod.js --progress --profile --bail",
     "postinstall": "rimraf dist && webpack --config build/webpack.prod.js --progress --profile --bail"

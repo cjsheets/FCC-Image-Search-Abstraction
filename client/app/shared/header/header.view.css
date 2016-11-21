@@ -59,3 +59,7 @@
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+#top-right-nav .dropdown-menu li {
+  color: #333333;
+  padding-left: 10px;
+}
