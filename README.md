@@ -81,6 +81,8 @@ This package contains:
 ### To-Do
 
 * Flatten routers promise chain
+* Handle concurrent addToLatest, parseApiResponse
+* Re-introduce custom error handling
 
 ### License
 

@@ -1,13 +1,13 @@
 var Promise     = require('bluebird');
 var url         = require('url')
 var validator   = require('validator')
-var debug       = require('debug')('controller:parseQueryString');
+var debug       = require('debug')('controller:parseSearchRequest');
 
 /* -----------------------------------|
  *|  Synchronous operation 
  */
 
-module.exports = Promise.method(function parseQueryString(req) {
+module.exports = Promise.method(function parseSearchRequest(req) {
   // Parse URL Query String
   let query = url.parse(req.url, true).query,
     search = {
@@ -24,5 +24,5 @@ module.exports = Promise.method(function parseQueryString(req) {
     ! validator.isInt(search.offset.toString(), { min: 1, max: 99 }) ) {
     throw('Bad Request'); // Bad Request
   };
-  return search;
+  return Promise.resolve(search);
 });

@@ -1,11 +1,15 @@
-// var handleEntityNotFound    = require('./handleEntityNotFound');
+var addToLatest             = require('./addToLatest');
+var getLatest               = require('./getLatest');
 var parseApiResponse        = require('./parseApiResponse');
-var parseQueryString        = require('./parseQueryString');
+var parseLatestRequest      = require('./parseLatestRequest');
+var parseSearchRequest      = require('./parseSearchRequest');
 var queryGoogleAPI          = require('./queryGoogleAPI');
 
 module.exports = {
-  // handleEntityNotFound  : handleEntityNotFound,
+  addToLatest           : addToLatest,
+  getLatest             : getLatest,
   parseApiResponse      : parseApiResponse,
-  parseQueryString      : parseQueryString,
+  parseLatestRequest    : parseLatestRequest,
+  parseSearchRequest    : parseSearchRequest,
   queryGoogleAPI        : queryGoogleAPI
 }

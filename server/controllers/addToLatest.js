@@ -9,7 +9,10 @@ var debug               = require('debug')('controller:addQueryToDb');
  */
 
 // Creates a new Search in the DB
-module.exports = function(data) {
-  return Latest.create(data)
+module.exports = function(response) {
+  return Latest.create({
+    term: response.queries.request[0].searchTerms,
+    date : new Date()
+  })
 }
 

@@ -46,12 +46,12 @@ export class ImageSearchComponent implements OnInit {
   }
 
   getLatestSearches(): void {
-    // this.imageSearchService.getImageResults(this.latestURL)
-    //   .then(response => {
-    //     this.latestJSON = response;
-    //     this.latestLoading = false;
-    //     console.log(response);
-    //   })
+    this.imageSearchService.getImageResults(this.latestURL)
+      .then(response => {
+        this.latestJSON = response;
+        this.latestLoading = false;
+        console.log(response);
+      })
   }
 
   jsonToString(json: {}): string {

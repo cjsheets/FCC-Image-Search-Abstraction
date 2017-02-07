@@ -10,10 +10,10 @@ var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
 var morgan          = require('morgan');
 var flash           = require('connect-flash');
+var mongoose        = require('mongoose');
 var Raven           = require('raven');
 var debug           = require('debug')('express:main');
 var env             = require('./environment');
-
 
 /* -----------------------------------|
  *|  Configuration
@@ -40,6 +40,16 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 
 app.use(express.static(path.join(__dirname, '../../dist')));
 
+/* -----------------------------------|
+ *|  MongoDB - Mongoose
+ */
+mongoose.connect(env.mongo.uri, env.mongo.options);
+mongoose.connection.on('error', function(err) {
+  debug(`MongoDB connection error: ${err}`);
+  // debug(`URI: ${env.mongo.uri}`);
+  // debug(`Options: ${env.mongo.options}`);
+  process.exit(-1); // eslint-disable-line no-process-exit
+});
 
 /* -----------------------------------|
  *|  Routes
