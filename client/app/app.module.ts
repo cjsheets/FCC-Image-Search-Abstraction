@@ -1,31 +1,20 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
-// Development and debugging interface: in-memory web api
-// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-// import { InMemoryDataService }  from './in-memory-data.service';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { ImageSearchService } from './components/image-search/image-search.service';
-import { ImageSearchComponent } from './components/image-search/image-search.component';
+import { AppRoutingModule, routedComponents } from './routing.module';
+import { SharedModule } from './shared/shared.module';
+
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-//    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    SharedModule,
+    AppRoutingModule
   ],
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    SidebarComponent,
-    ImageSearchComponent
+    routedComponents
   ],
-  providers: [ ImageSearchService ],
-  bootstrap: [ AppComponent ]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
