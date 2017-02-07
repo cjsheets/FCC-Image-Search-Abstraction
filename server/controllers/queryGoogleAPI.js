@@ -1,7 +1,7 @@
 var requestp      = require('request-promise')
 var env           = require('../config/environment')
 var querystring   = require('querystring')
-var sampleData    = require('../../api-response.json')
+//var sampleData  = require('../../api-response.json')
 var debug         = require('debug')('controller:queryGoogleAPI');
 
 /* -----------------------------------|

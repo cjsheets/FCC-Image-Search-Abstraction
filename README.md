@@ -19,7 +19,7 @@ Part of the [FreeCodeCamp](https://www.freecodecamp.com/cjsheets) curriculum bas
 
 This app underwent a major rewrite to simplify the codebase, improve readability and remove dependencies. 
 
-The next step is to develop tests for the file-metadata component and node server.
+The next step is to develop tests for the display component and node server.
 
 The old version will remain available in the 1.0.0 branch.
 

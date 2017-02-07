@@ -11,7 +11,9 @@
     "e2e": "protractor",
     "express-prod": "export NODE_ENV=production; node ./server/app",
     "express-dev": "node ./server/app",
-    "proxy": "ng serve --proxy-config proxy.conf.json"
+    "proxy": "ng serve --proxy-config proxy.conf.json",
+    "heroku-prebuild": "npm install --dev",
+    "heroku-postbuild": "ng build --target=production --environment=prod"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +42,7 @@
     "mongoose": "^4.8.1",
     "morgan": "^1.8.0",
     "raven-js": "^3.10.0",
+    "request": "^2.79.0",
     "request-promise": "^4.1.1",
     "ts-helpers": "^1.1.1"
   },

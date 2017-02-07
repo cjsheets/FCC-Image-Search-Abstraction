@@ -6,8 +6,8 @@
     <div class="search-container">
       <div class="form-group label-floating is-empty">
         <div class="input-group">
-          <label for="i5" class="control-label">Search</label>
-          <input class="form-control" id="i5" type="text" [(ngModel)]="searchQuery"  (keyup.enter)="searchButtonClicked()">
+          <input class="form-control" id="i5" type="text" [(ngModel)]="searchQuery"  (keyup.enter)="searchButtonClicked()"
+            placeholder="Search">
           <span class="help-block">Perform a <code>Google Image Search</code>, preview JSON response below</span>
           <span class="input-group-btn">
           <button type="button" class="btn btn-raised btn-primary" (click)="searchButtonClicked()">
