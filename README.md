@@ -17,11 +17,14 @@ Part of the [FreeCodeCamp](https://www.freecodecamp.com/cjsheets) curriculum bas
 
 ### Version 2.0
 
-This app underwent a major rewrite to simplify the codebase, improve readability and remove dependencies. 
+This app underwent a major rewrite. Version 2 improvemetns includes: 
 
-The next step is to develop tests for the display component and node server.
-
-The old version will remain available in the 1.0.0 branch.
+* Use of reactive forms 
+* Added model constraints
+* Stricter Typing
+* Jasmine / Karma unit tests
+* Jasmine / Karma integration tests
+* Protractor e2e tests
 
 ## Install
 
@@ -62,6 +65,34 @@ terminal session: `npm run proxy`
 
 Navigate to `http://localhost:4200`
 
+## Test
+
+For client unit and integration tests run:
+
+```
+npm test
+```
+
+For server tests, run:
+
+```
+npm run test:node
+```
+
+For end-to-end tests, first either install protractor globally 
+(`npm install -g protractor`) or install developer dependencies and source
+the local npm packages (`export PATH=$(npm bin):$PATH`). Confirm by running 
+`protractor --version`. 
+
+Start the selenium (protractor) server with: `npm run pre:e2e`
+
+Finally, run the tests:
+
+```
+
+```
+
+
 ## Technology Stack
 
 This package contains:
@@ -76,6 +107,8 @@ This package contains:
 | Both | 
 | ------- |
 | Typescript |
+| Jasmine/Karma | (testing)
+| Protractor | (e2e testing)
 
 
 ### To-Do
@@ -83,6 +116,7 @@ This package contains:
 * Flatten routers promise chain
 * Handle concurrent addToLatest, parseApiResponse
 * Re-introduce custom error handling
+* Use bluebird for promises
 
 ### License
 

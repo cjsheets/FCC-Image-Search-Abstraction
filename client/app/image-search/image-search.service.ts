@@ -10,7 +10,8 @@ export class ImageSearchService {
 
   constructor(private http: Http) { }
 
-  getImageResults(searchQuery: string): Promise<[{}]> {
+ // getImageResults(searchQuery: string): Promise<[{}]> {
+  getImageResults(searchQuery: string) {
       console.log(searchQuery);
       return this.http.get(searchQuery)
         .toPromise()
@@ -18,7 +19,8 @@ export class ImageSearchService {
         .catch(this.handleError);
   }
 
-  private handleError(error: any): Promise<any> {
+//  private handleError(error: any): Promise<any> {
+  handleError(error) {
     console.error('An error occurred - image-search.service', error); // Needs to be improved
     return Promise.reject(error.message || error);
   }

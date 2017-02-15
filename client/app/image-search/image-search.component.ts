@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageSearchService } from './image-search.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'image-search',
@@ -9,30 +10,44 @@ import { ImageSearchService } from './image-search.service';
 })
 
 export class ImageSearchComponent implements OnInit {
-
+  // API destinations
   private imageSearchURL = 'api/search?t=';
   private latestURL = 'api/latest';
-  searchQuery: string = '';
-  searchOffset: number;
-  queryString: string = '';
   apiCallString: string = 'http://' + document.domain + '/' + this.imageSearchURL;
+  // Form Elements
+  searchControl: FormControl
+  offsetControl: FormControl
+  // Result output placeholders
   responseJSON: [{}];
   latestJSON: [{}];
   responseLoading: boolean = false;
   latestLoading: boolean = false;
 
-  constructor(private imageSearchService: ImageSearchService) { }
+  constructor(
+    private imageSearchService: ImageSearchService
+  ) {}
 
-  searchButtonClicked(searchTerm: string): void {
-    this.responseLoading = true;
-    this.getImageSearchResults();
+  ngOnInit(): void {
+    // this.getImageSearchResults();
+    this.buildForm();
+    this.offsetControl.valueChanges.subscribe(value => {
+      this.validateOffset();
+    });
+    this.latestLoading = true;
+    this.getLatestSearches();
+  }
+  
+  buildForm() {
+    this.searchControl = new FormControl;
+    this.offsetControl = new FormControl;
   }
 
   getImageSearchResults(): void {
-    if(this.searchQuery) {
-      this.queryString = (this.searchOffset > 0) ? 
-        this.searchQuery + '&o=' + this.searchOffset : this.searchQuery;
-      this.imageSearchService.getImageResults(this.imageSearchURL + this.queryString)
+    this.responseLoading = true;
+    if(this.searchControl.value) {
+      let queryString = (this.offsetControl.value > 0) ? 
+        this.searchControl.value + '&o=' + this.offsetControl.value : this.searchControl.value;
+      this.imageSearchService.getImageResults(this.imageSearchURL + queryString)
         .then(response => {
           console.log(response);
           this.responseJSON = response;
@@ -54,32 +69,28 @@ export class ImageSearchComponent implements OnInit {
       })
   }
 
+  validateOffset(newOffset ?: number): void {
+    let offset = newOffset || this.offsetControl.value;
+    offset = (offset > 0) ? offset : null;
+    this.offsetControl.setValue(offset);
+  }
+
+  incrementOffset(): void {
+    let offset = this.offsetControl.value;
+    this.validateOffset((offset) ? offset + 1 : 1);
+  }
+
+  decrementOffset(): void {
+    let offset = this.offsetControl.value;
+    this.validateOffset((offset) ? offset - 1 : 0);
+  }
+
   jsonToString(json: {}): string {
     return JSON.stringify(json);
   }
 
   clearResponseJSON(): void {
     this.responseJSON = [{}];
-  }
-
-  changeOffset(): void {
-    this.searchOffset = (this.searchOffset > 0) ? this.searchOffset : null;
-  }
-
-  incrementOffset(): void {
-    this.searchOffset = (this.searchOffset) ? this.searchOffset + 1 : 1;
-    this.changeOffset();
-  }
-
-  decrementOffset(): void {
-    this.searchOffset = this.searchOffset - 1;
-    this.changeOffset();
-  }
-
-  ngOnInit(): void {
-    // this.getImageSearchResults();
-    this.latestLoading = true;
-    this.getLatestSearches();
   }
 
   private handleError(error: any): Promise<any> {

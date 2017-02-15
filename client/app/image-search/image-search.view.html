@@ -4,35 +4,36 @@
     <p>Enter a search term to see what the API returns.
     </p>
     <div class="search-container">
-      <div class="form-group label-floating is-empty">
-        <div class="input-group">
-          <input class="form-control" id="i5" type="text" [(ngModel)]="searchQuery"  (keyup.enter)="searchButtonClicked()"
-            placeholder="Search">
-          <span class="help-block">Perform a <code>Google Image Search</code>, preview JSON response below</span>
-          <span class="input-group-btn">
-          <button type="button" class="btn btn-raised btn-primary" (click)="searchButtonClicked()">
-            <i class="zmdi zmdi-search"></i>
-            <div class="ripple-container"></div></button>
-          </span>
-        </div>
-      </div>
-      <div style="width: 40px;">
-
-      </div>
-      <div class="form-group is-empty" style="width: 110px;">
-        <div class="input-group spinner">
-          <input type="text" id="i6" class="form-control" placeholder="Offset"
-            [(ngModel)]="searchOffset" (change)="changeOffset()">
-          <div class="input-group-btn-vertical">
-            <button class="btn btn-default" type="button" (click)="incrementOffset()">
-              <i class="zmdi zmdi-caret-up"></i>
-            </button>
-            <button class="btn btn-default" type="button" (click)="decrementOffset()">
-              <i class="zmdi zmdi-caret-down"></i>
-            </button>
+        <div class="form-group label-floating is-empty">
+          <div class="input-group">
+            <input class="form-control" id="i5" type="text" 
+              [formControl]="searchControl"  (keyup.enter)="getImageSearchResults()"
+              placeholder="Search">
+            <span class="help-block">Perform a <code>Google Image Search</code>, preview JSON response below</span>
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-raised btn-primary" (click)="getImageSearchResults()">
+              <i class="zmdi zmdi-search"></i>
+              <div class="ripple-container"></div></button>
+            </span>
           </div>
         </div>
-      </div>
+        <div style="width: 40px;">
+
+        </div>
+        <div class="form-group is-empty" style="width: 110px;">
+          <div class="input-group spinner">
+            <input type="text" id="i6" class="form-control" placeholder="Offset"
+              [formControl]="offsetControl">
+            <div class="input-group-btn-vertical">
+              <button class="btn btn-default" type="button" (click)="incrementOffset()">
+                <i class="zmdi zmdi-caret-up"></i>
+              </button>
+              <button class="btn btn-default" type="button" (click)="decrementOffset()">
+                <i class="zmdi zmdi-caret-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
     </div>
   <br><br>
   <div class="panel panel-default">
@@ -41,10 +42,10 @@
       <span style="float: left">
         {{apiCallString}}
       </span>
-      <span style="float: left" *ngIf="searchQuery">
-        <b>{{searchQuery}}</b>
+      <span style="float: left" *ngIf="searchTerm">
+        <b>{{searchTerm}}</b>
       </span>
-      <span style="float: left" *ngIf="searchOffset > 0 && searchQuery">
+      <span style="float: left" *ngIf="searchOffset > 0 && searchTerm">
         &offset=<b>{{searchOffset}}</b>
       </span>
     </div>
