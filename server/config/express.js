@@ -31,7 +31,7 @@ debug('Setup express server, initialize middleware');
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
-app.use(validator());
+app.use(validator()); // Must be immediately after bodyParser middlewares
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(validator());
 
