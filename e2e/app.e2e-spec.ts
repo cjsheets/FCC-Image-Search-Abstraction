@@ -13,6 +13,7 @@ describe('node-image-search-abstraction App', function() {
     expect(page.getParagraphText()).toEqual('app works!');
   });
 
+  // Additional steps
   // browser.pause();
   //  - c: move foward
   //  - repl: interactive mode
