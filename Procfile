@@ -1,1 +1,1 @@
-web: npm run express-prod
+web: npm run server:prod
