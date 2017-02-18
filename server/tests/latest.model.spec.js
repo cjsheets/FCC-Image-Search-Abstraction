@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 var Latest = require('../models').Latest;
 
 describe('Create a instance of testModel', function() {

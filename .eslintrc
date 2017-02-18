@@ -5,7 +5,8 @@
         "node": true
     },
     "globals": {
-        "angular": true
+        "angular": true,
+        "__": true                                                  // Allow global variables to not be flagged as undefined
     },
     "parser": "typescript-eslint-parser",
     "plugins": [
@@ -156,7 +157,7 @@
         "array-bracket-spacing": [2, "never"],                      //enforce spacing inside array brackets
         "block-spacing": 0,                                         //disallow or enforce spaces inside of single line blocks
         "brace-style": 2,                                           //enforce one true brace style
-        "camelcase": 1,                                             //require camel case names
+        //"camelcase": 1,                                           //require camel case names
         "comma-spacing": [2, {"before": false, "after": true}],     //enforce spacing before and after comma
         "comma-style": 2,                                           //enforce one true comma style
         "computed-property-spacing": 2,                             //require or disallow padding inside computed properties
@@ -169,7 +170,17 @@
         "id-match": 0,                                              //require identifiers to match the provided regular expression
         "indent": ["error", 2],                                     //specify tab or space width for your code
         "jsx-quotes": 0,                                            //specify whether double or single quotes should be used in JSX attributes
-        "key-spacing": 2,                                           //enforce spacing between keys and values in object literal properties
+        "key-spacing": [2, {
+            "singleLine": {
+                "beforeColon": false,
+                "afterColon": true
+            },
+            "multiLine": {
+                "beforeColon": true,
+                "afterColon": true,
+                "align": "colon"
+            }
+        }],                                           //enforce spacing between keys and values in object literal properties
         "keyword-spacing": [2, {
             "before": true,
             "after": true,
@@ -219,7 +230,7 @@
         "object-curly-newline": 0,                                  //enforce consistent line breaks inside braces
         "object-curly-spacing": 0,                                  //require or disallow padding inside curly braces
         "object-property-newline": 0,                               //enforce placing object properties on separate lines
-        "one-var": [2, "never"],                                    //require or disallow one variable declaration per function
+        "one-var": [2, "never"],                                   //require or disallow one variable declaration per function
         "one-var-declaration-per-line": 2,                          //require or disallow an newline around variable declarations
         "operator-assignment": 0,                                   //require assignment operator shorthand where possible or prohibit it entirely
         "operator-linebreak": [1, "before"],                        //enforce operators to be placed before or after line breaks

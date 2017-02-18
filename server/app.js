@@ -5,11 +5,12 @@
  */
 var env         = require('./config/environment');
 
-if (env.node.env === 'development' || env.node.env === 'test') {
+if(env.node.env === 'development' || env.node.env === 'test') {
+  /* eslint no-process-env: 0 */
   process.env.DEBUG = 'app:*,api:*,passport:*,express:main,router:*';
 }
 
 /**
  * Load App Modules
  */
-var app         = require('./config/express');
+exports = module.exports = require('./config/express');
