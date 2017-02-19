@@ -15,13 +15,13 @@ export class ImageSearchComponent implements OnInit {
   private latestURL = 'api/latest';
   apiCallString: string = 'http://' + document.domain + '/' + this.imageSearchURL;
   // Form Elements
-  searchControl: FormControl
-  offsetControl: FormControl
+  searchControl: FormControl;
+  offsetControl: FormControl;
   // Result output placeholders
   responseJSON: [{}];
   latestJSON: [{}];
-  responseLoading: boolean = false;
-  latestLoading: boolean = false;
+  responseLoading = false;
+  latestLoading = false;
 
   constructor(
     private imageSearchService: ImageSearchService
@@ -36,7 +36,7 @@ export class ImageSearchComponent implements OnInit {
     this.latestLoading = true;
     this.getLatestSearches();
   }
-  
+
   buildForm() {
     this.searchControl = new FormControl;
     this.offsetControl = new FormControl;
@@ -44,8 +44,8 @@ export class ImageSearchComponent implements OnInit {
 
   getImageSearchResults(): void {
     this.responseLoading = true;
-    if(this.searchControl.value) {
-      let queryString = (this.offsetControl.value > 0) ? 
+    if (this.searchControl.value) {
+      const queryString = (this.offsetControl.value > 0) ? 
         this.searchControl.value + '&o=' + this.offsetControl.value : this.searchControl.value;
       this.imageSearchService.getImageResults(this.imageSearchURL + queryString)
         .then(response => {

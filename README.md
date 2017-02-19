@@ -60,8 +60,11 @@ webpack dev server to the backend:
 }
 ```
 
-Start the backend with: `npm run express-dev`, followed by the development server in a separate
-terminal session: `npm run proxy`
+Start the front end, back end, and linter simultaniously:
+
+```
+npm start
+```
 
 Navigate to `http://localhost:4200`
 

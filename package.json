@@ -5,6 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "concurrently \"npm run server:dev\" \"npm run client:proxy\" \"npm run lint:watch\"",
+    "build": "ng build",
     "client": "ng serve",
     "client:proxy": "ng serve --proxy-config proxy.conf.json",
     "server:prod": "export NODE_ENV=production; node ./server/app",
